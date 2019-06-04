@@ -30,6 +30,9 @@ google:
   resource:
     userInfoUri: https://www.googleapis.com/oauth2/v2/userinfo
 
+
+
+
 logging:
   level:
     org.hibernate.type: trace
