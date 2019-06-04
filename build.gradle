@@ -21,6 +21,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven { url 'https://repo.spring.io/snapshot' }
 }
 
 dependencies {
@@ -30,11 +31,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	
+
+	compile 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.1.BUILD-SNAPSHOT'
+
 	runtimeOnly 'mysql:mysql-connector-java'
 
 	compile('pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.1')
-	
+
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'

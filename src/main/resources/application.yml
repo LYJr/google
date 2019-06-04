@@ -18,7 +18,18 @@ spring:
     password:
     validation-query: SELECT 1
 
+google:
+  client:
+    clientId: 638895535747-elon4ncm44m3gdnhk4t1jp2bskja6sgq.apps.googleusercontent.com
+    clientSecret: yGuh44sl0Zhq9xlAenjgHmXb
+    accessTokenUri: https://accounts.google.com/o/oauth2/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+    clientAuthenticationScheme: form
+    scope: email, profile
+
+  resource:
+    userInfoUri: https://www.googleapis.com/oauth2/v2/userinfo
+
 logging:
   level:
     org.hibernate.type: trace
-
