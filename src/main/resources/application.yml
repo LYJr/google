@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: oauth
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create
+      #      ddl-auto: validate
+      show-sql: true
+    database: MYSQL
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/google?serverTimezone=UTC
+    #    url: jdbc:mysql://localhost:3306/ims
+    username: root
+    password:
+    validation-query: SELECT 1
+
+logging:
+  level:
+    org.hibernate.type: trace
+
