@@ -10,7 +10,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @SpringBootApplication
 public class Application {
 
-	private static final String PROPERTIES = "spring.config.location=classpath:/google.yml";
+//	private static final String PROPERTIES = "spring.config.location=classpath:/google.yml";
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);

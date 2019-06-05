@@ -1,15 +1,10 @@
 package google;
 
-//import google.domain.User;
 import google.domain.User;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.io.Serializable;
 
+//lombok 적용 안됨.
 public class GoogleUser implements Serializable {
 
     private String id;
