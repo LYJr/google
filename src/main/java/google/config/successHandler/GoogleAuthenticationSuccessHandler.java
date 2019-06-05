@@ -2,7 +2,6 @@ package google.config.successHandler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import google.GoogleUser;
-import google.config.AppConfig;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Map;
 
 @Component
 public class GoogleAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
@@ -32,9 +32,9 @@ public class GoogleAuthenticationSuccessHandler implements AuthenticationSuccess
     }
 
     // OAuth 인증정보를 통해 객체 생성
+    // Authentication로 구글 계정 정보 얻음 [단 map으로 되어있음]ptj
     private GoogleUser getGoogleUser(Authentication authentication){
         OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) authentication;
-        return objectMapper.convertValue
-                (oAuth2Authentication.getUserAuthentication().getDetails(), GoogleUser.class);
+        return objectMapper.convertValue(oAuth2Authentication.getUserAuthentication().getDetails(), GoogleUser.class);
     }
 }

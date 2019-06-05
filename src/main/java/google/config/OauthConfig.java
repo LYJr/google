@@ -1,5 +1,6 @@
 package google.config;
 
+import google.config.successHandler.GoogleAuthenticationSuccessHandler;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -21,9 +22,11 @@ import javax.servlet.Filter;
 public class OauthConfig {
 
     private final OAuth2ClientContext oauth2ClientContext;
+    private final GoogleAuthenticationSuccessHandler googleAuthenticationSuccessHandler;
 
-    public OauthConfig(OAuth2ClientContext oauth2ClientContext) {
+    public OauthConfig(OAuth2ClientContext oauth2ClientContext, GoogleAuthenticationSuccessHandler googleAuthenticationSuccessHandler) {
         this.oauth2ClientContext = oauth2ClientContext;
+        this.googleAuthenticationSuccessHandler = googleAuthenticationSuccessHandler;
     }
 
     @Bean
@@ -32,7 +35,7 @@ public class OauthConfig {
         OAuth2RestTemplate oAuth2RestTemplate = new OAuth2RestTemplate(googleClient(), oauth2ClientContext);
         oauth2Filter.setRestTemplate(oAuth2RestTemplate);
         oauth2Filter.setTokenServices(new UserInfoTokenServices(googleResource().getUserInfoUri(), googleClient().getClientId()));
-
+        oauth2Filter.setAuthenticationSuccessHandler(googleAuthenticationSuccessHandler); // 인증 성공시 진행될 Handler 등록
         return oauth2Filter;
     }
 

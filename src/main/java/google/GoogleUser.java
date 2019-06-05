@@ -1,6 +1,6 @@
 package google;
 
-import google.domain.User;
+//import google.domain.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,28 +9,102 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class GoogleUser implements Serializable {
 
-    @JsonProperty("email")
+    private String id;
+
     private String email;
 
-    @JsonProperty("name")
+    private boolean verified_email;
+
     private String name;
 
-    @JsonProperty("prcture")
+    private String given_name;
+
+    private String family_name;
+
     private String picture;
 
-    public GoogleUser(String email, String name, String picture) {
+    private String locale;
+
+    public GoogleUser() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isVerified_email() {
+        return verified_email;
+    }
+
+    public void setVerified_email(boolean verified_email) {
+        this.verified_email = verified_email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public String getGiven_name() {
+        return given_name;
+    }
+
+    public void setGiven_name(String given_name) {
+        this.given_name = given_name;
+    }
+
+    public String getFamily_name() {
+        return family_name;
+    }
+
+    public void setFamily_name(String family_name) {
+        this.family_name = family_name;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
         this.picture = picture;
     }
 
-    public User _toUser(){
-        return new User(this.email, this.name, this.picture);
+    public String getLocale() {
+        return locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
+    @Override
+    public String toString() {
+        return "GoogleUser{" +
+                "id='" + id + '\'' +
+                ", email='" + email + '\'' +
+                ", verified_email=" + verified_email +
+                ", name='" + name + '\'' +
+                ", given_name='" + given_name + '\'' +
+                ", family_name='" + family_name + '\'' +
+                ", picture='" + picture + '\'' +
+                ", locale='" + locale + '\'' +
+                '}';
     }
 }
