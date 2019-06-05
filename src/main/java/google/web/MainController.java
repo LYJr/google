@@ -1,15 +1,10 @@
 package google.web;
 
-import google.GoogleUser;
-import google.domain.User;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
 
 @RestController
 public class MainController {
