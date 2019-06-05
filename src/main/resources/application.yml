@@ -22,6 +22,9 @@ spring:
     livereload:
       enabled: true # 정적파일들의 실시간 갱신
 
+  session:
+    store-type: jdbc #jdbc session 활성화 @EnableJdbcHttpSession 역활
+
 google:
   client:
     clientId: 638895535747-elon4ncm44m3gdnhk4t1jp2bskja6sgq.apps.googleusercontent.com

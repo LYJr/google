@@ -10,7 +10,7 @@ import java.util.Map;
 @RestController
 public class MainController {
 
-    @GetMapping("/ok")
+    @GetMapping("/success")
     public Map<String, Object> loginOk(HttpSession httpSession){
         Map<String, Object> response = new LinkedHashMap<>();
         response.put("profile", httpSession.getAttribute("user"));
