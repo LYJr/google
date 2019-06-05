@@ -17,6 +17,10 @@ spring:
     username: root
     password:
     validation-query: SELECT 1
+    data: classpath:schema_mysql.sql #Spring Session 테이블 스키마 적용
+  devtools:
+    livereload:
+      enabled: true # 정적파일들의 실시간 갱신
 
 google:
   client:
@@ -29,9 +33,6 @@ google:
 
   resource:
     userInfoUri: https://www.googleapis.com/oauth2/v2/userinfo
-
-
-
 
 logging:
   level:
