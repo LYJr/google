@@ -3,11 +3,13 @@ package google.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Data
 @Entity
-@Table
+@Data
 @NoArgsConstructor
 public class User {
 
@@ -15,17 +17,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
     private String name;
 
-    private String imageUrl;
+    private String picture;
 
-    public User(String email, String name, String imageUrl) {
+    public User(String email, String name, String picture) {
         this.email = email;
         this.name = name;
-        this.imageUrl = imageUrl;
+        this.picture = picture;
     }
 }
