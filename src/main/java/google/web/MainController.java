@@ -1,6 +1,8 @@
 package google.web;
 
 import google.GoogleUser;
+import google.domain.User;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -18,11 +20,10 @@ public class MainController {
         this.httpSession = httpSession;
     }
 
-
     @GetMapping("/ok")
     public Map<String, Object> ok(){
         Map<String, Object> response = new LinkedHashMap<>();
-        response.put("P", httpSession.getAttribute("user"));
+        response.put("login", httpSession.getAttribute("user"));
         return response;
     }
 

@@ -1,6 +1,7 @@
 package google;
 
 //import google.domain.User;
+import google.domain.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,6 +29,10 @@ public class GoogleUser implements Serializable {
     private String locale;
 
     public GoogleUser() {
+    }
+
+    public User _toUser(){
+        return new User(this.email, this.name, this.picture);
     }
 
     public String getId() {
